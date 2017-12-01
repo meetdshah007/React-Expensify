@@ -10,6 +10,18 @@ const AddExpensePage = ()=>(
   </div>
 );
 
+const EditExpensePage = ()=>(
+  <div>
+    This is from Edit Expense.
+  </div>
+);
+
+const HelpPage = ()=>(
+  <div>
+    This is from HelpPage.
+  </div>
+);
+
 const routes = (
   <BrowserRouter>
     <div>
@@ -21,6 +33,14 @@ const routes = (
       <Route
         path="/create"
         component={AddExpensePage}
+      />
+      <Route
+        path="/edit"
+        component={EditExpensePage}
+      />
+      <Route
+        path="/help"
+        component={HelpPage}
       />
     </div>
   </BrowserRouter>
