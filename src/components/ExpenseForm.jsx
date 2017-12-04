@@ -8,10 +8,10 @@ export default class ExpenseForm extends Component {
   constructor(props){
     super(props);
     this.state = {
-      description: '',
-      note: '',
-      amount: 0,
-      createdAt: new moment(),
+      description: props.expense ? props.expense.description : '',
+      note: props.expense ? props.expense.note : '',
+      amount: props.expense ? (props.expense.amount/100).toString() : 0,
+      createdAt: props.expense ? moment(props.expense.createdAt) : moment(),
       calendarFocused: false,
       error: ''
     }
