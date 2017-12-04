@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import AppRouter from './routers/AppRouter';
+import { Provider } from 'react-redux';
 import './App.css';
 // import './redux-example';
 import configureStore from './store/configureStore';
@@ -19,9 +20,13 @@ store.dispatch(setTextFilter('Bill'));
 //getVisibleExpense -> print visible ones to screen
 const state = store.getState();
 console.log(getVisibleExpenses(state.expenses, state.filter));
-
-
-ReactDOM.render(
-  <AppRouter />,
-  document.getElementById('root')
+setTimeout(()=>{
+  store.dispatch(setTextFilter('Gas'));
+}, 3000);
+const jsx = (
+  <Provider store={store}>
+    <AppRouter />
+  </Provider>
 );
+
+ReactDOM.render(jsx, document.getElementById('root'));
